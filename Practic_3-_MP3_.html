@@ -5,44 +5,48 @@
       <meta charset="utf-8" />
    </head>
    <body>
-   	<script>//"use strict"
+   	<script>"use strict";
 	
 	var mp3 = {
-		playlist: [
-			"Led_Zeppelin", 
-			"Kipelov", 
-			"Scorpions", 
-			"Metallica"
-		],
-		currTrack: mp3.playlist[2],
-	}	
-	//console.log(mp3.playlist[0]);
-	
-		/*on: function(){
-			console.log("Включен...");
-			this.play = function(){
-				console.log("playing..." + this.currentTrack);
-			}
-			
+		playlist: ["Led_Zeppelin", "Doors", "Scorpions", "Metallica"],
+		firstTrack : 0,
+		lastTrack : function(){ return mp3.playlist.length - 1; },
+		currTrack : 0,
+		on : false,
+		playing : false,
+		currLoud : 3,
+		minLoud : 0,
+		maxLoud : 10,
+		OnOff : function(){
+			if (this.on == false) { this.on = true; alert("mp3 is ON.."); }
+			else { this.on = false; alert("mp3 is OFF.."); }
 		},
-		
-		
-	
-		nextTrack: function(){
-			let t = this.currentTrack.valueOf;
-			alert(t);
-			
-		}
-		//previousTrack
-	}
-	
-	*/
-	
-         
+		playPause: function(){
+			if (this.on == true && this.playing == false) {
+				this.playing = true;
+				alert("Now playing: " + this.playlist[this.currTrack]);	
+			} else if (this.on == true && this.playing == true) {
+				this.playing = false;
+				alert("Pause... ");
+			}
+		},
+		nextTrack : function(){
+			if (this.currTrack == this.lastTrack()) this.currTrack = 0; 
+			else ++this.currTrack;
+		},
+		prevTrack : function(){
+			if (this.currTrack == this.firstTrack) this.currTrack = this.lastTrack();
+			else --this.currTrack;
+		},
+		loudUp : function(){ if (this.currLoud !== this.maxLoud) ++this.currLoud; },
+		loudDown : function(){ if (this.currLoud !== this.minLoud) --this.currLoud; },
+	}	
+   
+
+
+
+
+   
     </script>
-
-
-
-
    </body>
 </html>

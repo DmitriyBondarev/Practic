@@ -6,8 +6,12 @@
    </head>
    <body>
       <button id="btn" type="button">Одноразовая кнопка</button>
-      <script>
-	  
+      <script>"use strict";
+/* Напишите для кнопки обработчик события onclick, который сработает только
+один раз.
+Внутри обработчика выведите сообщение Hello World! на экран любым
+известным способом.	  
+*/	  
 	    var btns = document.getElementById("btn");
 		btns.onclick = name;
 		
@@ -16,6 +20,10 @@
 			btns.onclick = function(){};
 		};
 	
+		
+		
+		
+		
 		
       </script>
    </body>
