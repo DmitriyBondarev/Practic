@@ -5,24 +5,26 @@
       <meta charset="utf-8" />
    </head>
    <body>
-   	<script>
-	
+   <script>//'use strict';
+/*	
+	Напишите рекурсивную функцию digitSum(k), которая находит 
+	сумму цифр целого числа k, не используя операторы цикла.
+*/
+
 	var res = 0;
 	function sum(n){
-		if (n!=0){
-			res += n%10;  			 //3
-			n = (n-(n%10))/10;		 //12
+		if (n != 0){
+			res += n % 10;  			 //3
+			n = (n - (n % 10)) / 10;		 //12
 			return sum(n);
 		}
 	}
-	sumnum(1235);
+	
+	sum(123);
+	console.dir(res);
 	
 	
          
-    </script>
-
-
-
-
+   </script>
    </body>
 </html>
