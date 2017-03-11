@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Переопределение функций</title>
+      <meta charset="utf-8" />
+   </head>
+   <body>
+      <button id="btn" type="button">Одноразовая кнопка</button>
+      <script>
+	  
+	    var btns = document.getElementById("btn");
+		btns.onclick = name;
+		
+		function name(){
+			console.log("hello world!");
+			btns.onclick = function(){};
+		};
+	
+		
+      </script>
+   </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Самовызывающиеся функции</title>
+      <meta charset="utf-8" />
+   </head>
+   <body>
+   	<script>"use strict"
+	/*
+		var car = {
+			"model": "Fiat",
+			"speed": "180",
+			mess: function(){console.dir(this.model + " едет со скоростью " + this.speed + " km/h");},
+			stop: function(){console.dir(this.model+ " остановилась");},
+		}
+		car.mess();
+		car.stop();
+	*/	
+	var tvRemote = {
+		currentChannel: 1,
+		maxChan: 10,
+		minChan: 1,
+		
+		nextChannel: function(){
+			var c = this.currentChannel + 1;
+			if(this.checkChan(c)){
+				return this.currentChannel = c;
+			} else return this.currentChannel = this.minChan;
+		},
+		previousChannel: function(){
+			var c = this.currentChannel - 1;
+			if(this.checkChan(c)){
+				return this.currentChannel = c;
+			}else return this.currentChannel = this.maxChan;			
+		},
+		checkChan: function(chan){
+			if (chan < this.minChan || chan > this.maxChan) {
+				return false;
+			} else return true;
+		},
+		setChannel: function(c){
+			if(this.checkChan(c)){
+				return this.currentChannel = c;
+			}
+		},		
+	}
+         
+    </script>
+
+
+
+
+   </body>
+</html>

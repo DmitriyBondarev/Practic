@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Самовызывающиеся функции</title>
+      <meta charset="utf-8" />
+   </head>
+   <body>
+      <form>
+         <input id="inp" type="text" />
+         <button type="button">Один</button>
+         <button type="button">Два</button>
+         <button type="button">Три</button>
+         <button type="button">Четыре</button>
+         <button type="button">Пять</button>
+      </form>
+<script>
+         var inp = document.getElementById("inp");
+         var btns = document.getElementsByTagName("button");
+         for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = (function (i) {
+				return function(){
+					inp.value += (i + 1);
+				}
+            }(i));
+         }
+      </script>
+
+
+
+
+   </body>
+</html>

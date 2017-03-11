@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Пример веб-страницы</title>
+ </head>
+ <body>
+ <script>"use strict";
+	
+/*  	function foo(a, b){
+		if(a*b>0 && typeof(a) == "number" && typeof(b) == "number"){
+			var p = (a+b)*2;
+			var s = a*b;
+			var res = "S = " + s + "; P = " + p;
+			alert(res);
+		} else alert("wrong number!");
+	}
+	foo(4,3);
+*/
+
+	function calcPS () {
+		var outer = {
+			a : 0,							// скрытое
+			b : 0,							// скрытое
+			inner : {							// return inner (3 метода)
+				setAB : function(newA, newB){
+					if (newA > 0 && newB > 0){
+						outer.a = newA;
+						outer.b = newB;
+						return true;
+					} else return false;
+				},
+				getP : function(){
+					return (outer.a + outer.b) * 2;
+				},
+				getS : function(){
+					return outer.a * outer.b;
+				},
+			},
+		};
+		return outer.inner;		
+	}
+	var ps = calcPS();				// замыкание ?
+
+// проверка:	
+	ps.setAB(2,3);
+	ps.getS;
+	ps.getP;
+	
+	ps.setAB(8,-8);
+	ps.getS;
+	ps.getP;
+	
+
+	
+	
+	
+	
+	 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ </script>
+ </body>
+</html>

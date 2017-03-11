@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<script>"use strict"
+
+  var calc = {
+      value1:0,
+      value2:0,
+      read: function(){
+          this.value1 = prompt("enter Value1");
+          this.value2 = prompt("enter Value2");
+      },
+      summ: function (){
+        return Number(this.value1) + Number(this.value2);
+      },
+      mul: function (){
+        return this.value1 * this.value2;
+      },
+  }
+
+ calc.read();
+ calc.summ();
+ calc.mul();
+
+
+
+
+
+
+
+</script>
+</body>
+
+</html>
