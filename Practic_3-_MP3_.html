@@ -17,9 +17,15 @@
 		currLoud : 3,
 		minLoud : 0,
 		maxLoud : 10,
-		OnOff : function(){
-			if (this.on == false) { this.on = true; alert("mp3 is ON.."); }
-			else { this.on = false; alert("mp3 is OFF.."); }
+		onOff : function(){
+			switch (this.on){
+				case false: 
+					this.on = true;
+					alert("mp3 is ON.."); break;
+				default:
+					this.on = false;
+					alert("mp3 is OFF..");				
+			}
 		},
 		playPause: function(){
 			if (this.on == true && this.playing == false) {
