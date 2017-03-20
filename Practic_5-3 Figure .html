@@ -19,33 +19,33 @@
 */ 
 
 	function Figure (){
-		this._x = 3;
+		this._x = 3;											//определяем центр фигуры
 		this._y = 4;
-		this.setX = function (width) {
+		this.setX = function (width) {									//задаем ширину фигуры
 			if (typeof (width) == "number") this._x = width / 2;
 			else return "not a number!";
 		};
-		this.setY = function (height) {
+		this.setY = function (height) {										//задаем высоту фигуры 
 			if (typeof (height) == "number") this._y = height / 2;
 			else return "not a number!";
 		};
-		this.info = function(){
+		this.info = function(){											//вывод инфо
 			console.log("Коорд. центра: \nx = " + this._x + "\ny = " + this._y + "\n" + this._special + " = " + this._specVal);
 		};
 	}
 	
-	function Rectangle () {
+	function Rectangle () {									//констр. для прямоугольника
 		Figure.call(this);
 		this._special = "диагональ";
 		this._specVal = Math.sqrt (this._x * this._x + this._y * this._y) * 2;
 	}
-	function Circle () {
+	function Circle () {								//констр. для круга
 		Figure.call(this);
 		this._special = "радиус";
 		this._specVal = this._x;
 	}
 	
-	 var r = new Rectangle();
+	 var r = new Rectangle();					//новые объекты
 	 var c = new Circle();
 	 
 	 r.info()
