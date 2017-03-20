@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Практика</title>
+      <meta charset="utf-8" />
+   </head>
+   <body>
+   	<script>"use strict";
+/*
+		Задание №3. Функциональное наследование
+	Создайте конструктор объектов Геометрическая фигура, определите 
+	в нем приватные свойства для задания центра фигуры. Для доступа 
+	к этим свойствам определите необходимые метод/методы.
+	На основе этого конструктора создайте два новых (наследники) – Прямоугольник и Круг. 
+	В этих конструкторах определите особые приватные свойства. (Например, длина диагонали 
+	для Квадрата и радиус для Круга). В каждый из конструкторов добавьте 
+	публичный метод info(), который выводит на экран всю доступную информацию о фигуре.
+
+*/ 
+
+	function Figure (){
+		this._x = 3;
+		this._y = 4;
+		this.setX = function (width) {
+			if (typeof (width) == "number") this._x = width / 2;
+			else return "not a number!";
+		};
+		this.setY = function (height) {
+			if (typeof (height) == "number") this._y = height / 2;
+			else return "not a number!";
+		};
+		this.info = function(){
+			console.log("Коорд. центра: \nx = " + this._x + "\ny = " + this._y + "\n" + this._special + " = " + this._specVal);
+		};
+	}
+	
+	function Rectangle () {
+		Figure.call(this);
+		this._special = "диагональ";
+		this._specVal = Math.sqrt (this._x * this._x + this._y * this._y) * 2;
+	}
+	function Circle () {
+		Figure.call(this);
+		this._special = "радиус";
+		this._specVal = this._x;
+	}
+	
+	 var r = new Rectangle();
+	 var c = new Circle();
+	 
+	 r.info()
+	 c.info()
+	
+	
+	
+	
+	
+	
+	
+	
+         
+    </script>
+	
+   </body>
+</html>
