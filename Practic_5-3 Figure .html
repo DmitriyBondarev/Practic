@@ -18,39 +18,62 @@
 
 */ 
 
-	function Figure (){
-		this._x = 3;											//определяем центр фигуры
-		this._y = 4;
-		this.setX = function (width) {									//задаем ширину фигуры
-			if (typeof (width) == "number") this._x = width / 2;
+	function Figure (){		
+		var _x = 0;											//хранение координат центр фигуры
+		var _y = 0;			
+	   this.x = function (width) {							//задаем ширину фигуры (getSet)
+			if (width === undefined) return _x;
+			if (typeof (width) === "number") { _x = width / 2; }
 			else return "not a number!";
 		};
-		this.setY = function (height) {										//задаем высоту фигуры 
-			if (typeof (height) == "number") this._y = height / 2;
+	   this.y = function (height) {						  //задаем высоту фигуры (getSet)
+			if (height === undefined) return _y;
+			if (typeof (height) === "number") { _y = height / 2; }
 			else return "not a number!";
-		};
-		this.info = function(){											//вывод инфо
-			console.log("Коорд. центра: \nx = " + this._x + "\ny = " + this._y + "\n" + this._special + " = " + this._specVal);
 		};
 	}
 	
 	function Rectangle () {									//констр. для прямоугольника
 		Figure.call(this);
-		this._special = "диагональ";
-		this._specVal = Math.sqrt (this._x * this._x + this._y * this._y) * 2;
+		var self = this;
+		var _diagonal = "диагональ";
+  //	var _diagValue = Math.sqrt (Math.pow(self.x(), 2) + Math.pow(self.y(), 2)) * 2;        // <= ВОПРОС!  Почему не работает при записи в переменную? а при оборачивании ф-й все ок.
+		var _diagValue = function () {														
+			      return Math.sqrt (Math.pow(self.x(), 2) + Math.pow(self.y(), 2)) * 2;        //получение диагонали
+		};
+	   this.info = function() {					
+			console.log(
+				"Прямоугольник:\n " + 
+				"коорд. центра:\n   x = " + self.x() 
+				+ ",\n   y = " + self.y() + ",\n " 
+				+ _diagonal + " = " + _diagValue()
+			);							
+		}	
 	}
 	function Circle () {								//констр. для круга
 		Figure.call(this);
-		this._special = "радиус";
-		this._specVal = this._x;
+		var self = this;
+		var _radius = "радиус";
+		var _radiusValue = self.x;
+	   this.info = function() {
+			console.log(
+				"Круг:\n " + 
+				"коорд. центра:\n   x = " + self.x() 
+				+ ",\n   y = " + self.x() + ",\n " 
+				+ _radius + " = " + _radiusValue()
+			);
+		}
 	}
 	
 	 var r = new Rectangle();					//новые объекты
-	 var c = new Circle();
-	 
-	 r.info()
-	 c.info()
+	 r.x(3);
+	 r.y(4);
+	 r.info();
 	
+	 var c = new Circle();
+	 c.x(6);
+	 c.y(8);
+	 c.info();
 	
 	
 	
