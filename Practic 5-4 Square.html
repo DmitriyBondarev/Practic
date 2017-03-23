@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Практика</title>
+      <meta charset="utf-8" />
+   </head>
+   <body>
+   	<script>"use strict";
+/*
+		Задание №4. Функциональное наследование. Полиморфизм
+	Создайте конструктор для объектов Квадрат, определите защищенное свойство для хранения значения стороны. 
+	Для доступа к этому свойству определите необходимые метод/методы. 
+	Также определите публичный метод, который возвращает периметр.
+	На основе этого конструктора создайте конструктор Куб и переопределите метод получения периметра.
+	Реализуйте 2 версии текущего задания, используя следующие способы переопределения:
+	1. Без расширения (полностью переопределить метод родителя);
+	2. С расширением (использовать результат метода родителя для дальнейших расчетов).
+*/ 
+
+	function Square () {
+		this._side = 2;
+		this.side = function (val) {
+			if (val === undefined) return this._side;
+			if (typeof(val) === "number") { this._side = val; return this._side; }
+			else return "not a number...";
+		}
+		this.perimeter = function () {
+			let per = this._side * 4
+			return per;
+		}
+	}
+	
+/* 	function Cube () {
+		Square.call(this);
+		this.perimeter = function () {
+			let per = this._side * 12;
+			return per;
+		}
+	}; */
+	function Cube () {
+		Square.call(this);
+		this.perimeter2 = function () {
+			let per = this.perimeter() * 3;
+			return per;
+		}
+	}
+	
+	var c = new Cube ();
+		
+	
+	
+	
+/* 	console.log(s.side());
+	console.log(s.side(4));
+	console.log(s.side("")); */
+	
+	
+	
+	
+	
+	
+	
+	
+         
+    </script>
+	
+   </body>
+</html>
