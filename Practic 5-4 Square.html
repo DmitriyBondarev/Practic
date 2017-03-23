@@ -17,15 +17,15 @@
 	2. С расширением (использовать результат метода родителя для дальнейших расчетов).
 */ 
 
-	function Square () {
-		let self = this;
-		this._side = 0;
-		this.side = function (val) {				//getSet
+    function Square () {
+        let self = this;
+        this._side = 0;
+        this.side = function (val) {				//getSet
 			if (val === undefined) return this._side;
 			if (typeof(val) === "number") { this._side = val; return this._side; }
 			else return "not a number...";
 		}
-		this.perimeter = function () {
+        this.perimeter = function () {
 			let per = self._side * 4
 			return per;
 		}
@@ -33,15 +33,15 @@
 	
 /* 	function Cube () {
 		Square.call(this);
-		this.perimeter = function () {
+		this.perimeter = function () {					//polymorph.1
 			let per = this._side * 12;
 			return per;
 		}
 	}; */
-	function Cube () {
+    function Cube () {
 		Square.call(this);
-		let self = this;
-		let parentPer = self.perimeter;					//polymorph.	
+      //let self = this;
+		let parentPer = self.perimeter;					//polymorph.2	
 	   this.perimeter = function () {
 			let per = parentPer() * 3;
 			return per;
